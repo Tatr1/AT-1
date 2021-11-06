@@ -1,35 +1,34 @@
 package ru.netology.service;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.Assert.*;
+import static org.testng.Assert.*;
 
 public class CashbackHackServiceTest {
     CashbackHackService cashback = new CashbackHackService();
 
-    @Test
+    @Test(groups = { "checkintest" })
     public void souldBeAmount0() {
-        assertEquals(1000, cashback.remain(0));
+        assertEquals(cashback.remain(0),1000);
     }
 
-    @Test
+    @Test(groups = { "checkintest" })
     public void souldBeAmount1() {
-        assertEquals(999, cashback.remain(1));
+        assertEquals(cashback.remain(1),999);
     }
 
-    @Test
+    @Test(groups = { "checkintest" })
     public void souldBeAmount999() {
-        assertEquals(1, cashback.remain(999));
+        assertEquals(cashback.remain(999),1);
     }
 
-    @Test
+    @Test(groups = { "checkintest" })
     public void souldBeAmount1000() {
-        assertEquals(0, cashback.remain(1000));
+        assertEquals(cashback.remain(1000),0);
     }
 
-    @Test
+    @Test(groups = { "checkintest" })
     public void souldBeAmount1010() {
-        assertEquals(999, cashback.remain(1001));
+        assertEquals(cashback.remain(1001),999);
     }
-
 }
